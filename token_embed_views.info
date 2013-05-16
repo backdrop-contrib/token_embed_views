@@ -1,0 +1,6 @@
+name = Token embed views
+description = Embed views using tokens
+core = 7.x
+
+dependencies[] = token
+dependencies[] = views
