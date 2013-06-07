@@ -29,12 +29,11 @@ function token_embed_views_tokens($type, $tokens, array $data = array(), array $
     foreach ($tokens as $token => $key) {
       // Extract info.
       $args = explode(':', $token);
+      // Remove the first element out as its not a required parameter for the views.
       $token_name = array_shift($args);
-      $view_name  = array_shift($args);
-      $display_id = array_shift($args);
 
-      // Fetch the view.
-      $replacements[$key] = views_embed_view($view_name, $display_id, $args);
+      // Fetch the view with all args passed to it.
+      $replacements[$key] = call_user_func_array('views_embed_view', $args);
     }
     return $replacements;
   }
