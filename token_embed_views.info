@@ -3,5 +3,4 @@ name = Token embed views
 description = Embed views using tokens
 backdrop = 1.x
 
-dependencies[] = token
 dependencies[] = views
