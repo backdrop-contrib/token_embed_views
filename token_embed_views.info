@@ -1,6 +1,7 @@
+type = module
 name = Token embed views
 description = Embed views using tokens
-core = 7.x
+backdrop = 1.x
 
 dependencies[] = token
 dependencies[] = views
