@@ -2,15 +2,15 @@
 
 ## Description
 
-This module create a token type called 'views'. This token can be used to embed
+This module creates a token type called 'views'. This token can be used to embed
 your views into your content. 
 
 
 ## Prerequisites
 
-You need the token module and the views module (which are part of Backdrop's core).
-You also need the token_filter module to enable toking replacing in your node 
-fields if you wish to use these tokens in node fields like body f.ex.
+You need the views module (which is part of Backdrop's core).
+You also need the token_filter module to enable token replacing in your node 
+fields if you wish to use these tokens in node fields like body, etc.
 
 ## Usage
 
@@ -18,12 +18,7 @@ Example: `[views:embed:view-name:display-id:arg1/arg2/arg3]`
 
 ## Installation
 
-To install, copy the token_embed_views directory and all its contents to your 
-modules directory.
-
-To enable this module, visit Administration -> Modules, and enable 
-token_embed_views.
-
+- Install this module using the [official Backdrop CMS instructions](https://backdropcms.org/guide/modules)
 
 ## Configuration
 
