@@ -20,17 +20,31 @@ function token_embed_views_token_info() {
  * Implements hook_tokens().
  */
 function token_embed_views_tokens($type, $tokens, array $data = array(), array $options = array()) {
-  if ($type == 'site') {dpm($tokens);
+  $replacements = array();
+  if ($type == 'site') {
+    // New syntax in Backdrop.
     if($views_infos = token_find_with_prefix($tokens, 'views-embed')) {
       foreach ($views_infos as $views_info => $original) {
         $args = explode(':', $views_info);
-        // Fetch the view with all args passed to it.
         $view = views_get_view($args[0]);
         if (!empty($view)) {
+          // Fetch the view with all args passed to it.
           $replacements[$original] = call_user_func_array('views_embed_view', $args);
         }
       }
     }
-    return $replacements;
+  } elseif ($type == 'views') { 
+    // Old syntax from D7.
+    $replacements = array();
+    foreach ($tokens as $token => $key) {
+      // Extract info.
+      $args = explode(':', $token);
+      // Remove the first element out as its not a required parameter for the views.
+      $token_name = array_shift($args);
+
+      // Fetch the view with all args passed to it.
+      $replacements[$key] = call_user_func_array('views_embed_view', $args);
+    }
   }
+  return $replacements;
 }
