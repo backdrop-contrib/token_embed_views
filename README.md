@@ -2,7 +2,7 @@
 
 ## Description
 
-This module creates a token type called 'views'. This token can be used to embed
+This module creates a site token called 'views-embed'. This token can be used to embed
 your views into your content. 
 
 
@@ -14,7 +14,15 @@ fields if you wish to use these tokens in node fields like body, etc.
 
 ## Usage
 
-Example: `[views:embed:view-name:display-id:arg1/arg2/arg3]`
+The Backdrop version uses two different syntaxes for the token:
+
+New syntax (Backdrop):
+`[site:views-embed:view-name:display-id:arg1/arg2/arg3]`
+
+Old syntax (Drupal 7 version):
+`[views:embed:view-name:display-id:arg1/arg2/arg3]`
+
+This will assure that ported sites from D7 that used the second syntax will still work.
 
 ## Installation
 
