@@ -24,9 +24,11 @@ Old syntax (Drupal 7 version):
 
 This will assure that ported sites from D7 that used the second syntax will still work.
 
-## Installation
+## Problems with entity caching and tokens
 
-- Install this module using the [official Backdrop CMS instructions](https://backdropcms.org/guide/modules)
+Backdrop caches node pages. After the initial page visit, subsequent page requests are served directly from the Backdrop cache, and therefore any embedded tokens will not be dynamically fulfilled. This causes issues with views that change often, or with fields that are not supposed to be seen by non-admin users, like the Views' "Edit" link for nodes. Backdrop will serve the cached version of the node, meaning that you will end up with a stale version of the View, or a link that's not supposed to be shown.
+
+To fix this situation, you need to download the [Entity Cache Administration](https://backdropcms.org/project/entity_cache_admin) module, which allows you to disable caching for specific entity types (for example for specific Content Types).
 
 ## Configuration
 
@@ -36,6 +38,11 @@ If however, you wish to use this token in your node fields like body, then you
 need to have the token_filter module. Enable the token_filter module and you 
 need to enable the "replace tokens" filter in your text formats in the 
 text format options under admin/config/content/formats.
+
+## Installation
+
+- Install this module using the [official Backdrop CMS instructions](https://backdropcms.org/guide/modules)
+
 
 ## Current Maintainers
 
